@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Mon premier article de blog'
 description: "Il s'agit du premier article de mon nouveau blog Astro."
 author: 'Apprenti Astro'

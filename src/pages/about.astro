@@ -1,5 +1,18 @@
 ---
+const pageTitle = "À propos de moi";
 
+const identity = {
+  firstName:  "Florian",
+  country: "Meunier",
+  occupation: "Développeur web",
+  hobbies: ["Manga/Anime", "Lecture", "Jeux Vidéos", "Learning"],
+};
+
+const skills: Array<string> = ["HTML", "CSS", "JavaScript", "TypeScript", "Astro", "Angular", "React", "NextJs", "NodeJs", "NestJs", "Express","PHP", "Symfony", "Python", "Django", "MongoDB", "PostegreSQL" ];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -8,17 +21,33 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>A propos</title>
+        <title>{pageTitle}</title>
 	</head>
 	<body>
         <a href="/">Accueil</a>
         <a href="/about/">À propos</a>
         <a href="/blog/">Blog</a>
-        <h1>À propos de moi</h1>
+        <h1>{pageTitle}</h1>
         <h2>... et de mon nouveau site Astro !</h2>
       
         <p>Je suis en train de suivre le tutoriel d'introduction d'Astro. C'est la deuxième page de mon site web, et c'est la première que j'ai construite moi-même !</p>
       
         <p>Ce site se mettra à jour au fur et à mesure que je compléterai davantage le tutoriel, alors revenez régulièrement voir comment se déroule mon parcours !</p>
+        {happy && <p>Je suis heureux d'apprendre Astro !</p>}
+        {finished && <p>J'ai terminé ce tutoriel !</p>}
+        {goal === 3 ? <p>Mon objectif est de terminer en 3 jours.</p> : <p>Mon objectif n'est pas de 3 jours.</p>}
+        
+        <h2>Voici quelques faits me concernant :</h2>
+        <ul>
+            <li>Je m'appelle {identity.firstName}.</li>
+            <li>Je vis au {identity.country} et je travaille en tant que {identity.occupation}.</li>
+            {identity.hobbies.length >= 2 &&
+                <li>Deux de mes loisirs sont : {identity.hobbies[1]} et {identity.hobbies[3]}</li>
+            }
+        </ul>
+        <h3>Voici mes compétences :</h3>
+        <ul>
+            {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
       </body>
 </html>

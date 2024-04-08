@@ -10,9 +10,13 @@ const identity = {
 
 const skills: Array<string> = ["HTML", "CSS", "JavaScript", "TypeScript", "Astro", "Angular", "React", "NextJs", "NodeJs", "NestJs", "Express","PHP", "Symfony", "Python", "Django", "MongoDB", "PostegreSQL" ];
 
-const happy = true;
-const finished = false;
-const goal = 3;
+const happy: boolean = true;
+const finished: boolean = false;
+const goal: number = 3;
+
+const skillColor: string = "navy";
+const fontWeight: string = "bold";
+const textCase: string = "uppercase";
 ---
 
 <html lang="en">
@@ -22,6 +26,17 @@ const goal = 3;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
+        <style define:vars={{skillColor, fontWeight, textCase}}>
+            h1 {
+              color: purple;
+              font-size: 4rem;
+            }
+            .skill {
+              color: var(--skillColor);
+              font-weight: var(--fontWeight);
+              text-transform: var(--textCase);
+            }
+          </style>
 	</head>
 	<body>
         <a href="/">Accueil</a>
@@ -36,7 +51,7 @@ const goal = 3;
         {happy && <p>Je suis heureux d'apprendre Astro !</p>}
         {finished && <p>J'ai terminé ce tutoriel !</p>}
         {goal === 3 ? <p>Mon objectif est de terminer en 3 jours.</p> : <p>Mon objectif n'est pas de 3 jours.</p>}
-        
+
         <h2>Voici quelques faits me concernant :</h2>
         <ul>
             <li>Je m'appelle {identity.firstName}.</li>
@@ -47,7 +62,7 @@ const goal = 3;
         </ul>
         <h3>Voici mes compétences :</h3>
         <ul>
-            {skills.map((skill) => <li>{skill}</li>)}
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
       </body>
 </html>
